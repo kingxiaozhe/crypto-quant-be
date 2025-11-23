@@ -50,6 +50,40 @@ uvicorn app.main:app --reload
 - `GET /api/v1/scan`: 获取最新市场扫描结果。
 - `GET /api/v1/kline?symbol=BTC/USDT&interval=15m`: 获取 K 线数据。
 
+## 部署指南 (Docker)
+
+本项目支持 Docker 一键部署，推荐使用海外服务器 (如新加坡 AWS/DigitalOcean) 以确保连接 Binance 顺畅。
+
+### 1. 首次部署
+
+```bash
+# 安装 Docker
+curl -fsSL https://get.docker.com | bash
+
+# 克隆代码
+git clone https://github.com/kingxiaozhe/crypto-quant-be.git
+cd crypto-quant-be
+
+# 启动服务
+docker compose up -d
+```
+
+### 2. 更新代码
+
+```bash
+# 给脚本执行权限 (仅需一次)
+chmod +x deploy.sh
+
+# 一键更新
+./deploy.sh
+```
+
+### 3. 查看日志
+
+```bash
+docker compose logs -f
+```
+
 ## 目录结构
 
 ```text

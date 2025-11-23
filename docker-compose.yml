@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    container_name: crypto_quant_be
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app # 开发模式挂载，生产环境可去掉
+    environment:
+      - TZ=Asia/Shanghai # 设置时区
